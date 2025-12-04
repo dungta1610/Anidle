@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "required": [
+      "id",
+      "name_en",
+      "class",
+      "diet",
+      "habitat",
+      "continents",
+      "size_kg",
+      "lifespan_years"
+    ],
+    "properties": {
+      "id": {
+        "type": "string"
+      },
+      "name_en": {
+        "type": "string"
+      },
+      "class": {
+        "type": "string",
+        "enum": [
+          "Mammal",
+          "Bird",
+          "Reptile",
+          "Amphibian",
+          "Fish",
+          "Insect",
+          "Arachnid",
+          "Other"
+        ]
+      },
+      "diet": {
+        "type": "string",
+        "enum": [
+          "Herbivore",
+          "Carnivore",
+          "Omnivore"
+        ]
+      },
+      "habitat": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "continents": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        }
+      },
+      "size_kg": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "lifespan_years": {
+        "type": "array",
+        "items": {
+          "type": "number"
+        },
+        "minItems": 2,
+        "maxItems": 2
+      },
+      "emoji": {
+        "type": [
+          "string",
+          "null"
+        ]
+      },
+      "image": {
+        "type": [
+          "string",
+          "null"
+        ]
+      }
+    }
+  }
+}

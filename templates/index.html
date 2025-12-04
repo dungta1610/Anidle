@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Anidle — Guess the Animal</title>
+
+    <link rel="stylesheet" href="/static/style.css?v=polish2" />
+
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.11.3/brython.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/brython@3.11.3/brython_stdlib.js"></script>
+  </head>
+
+  <body onload="brython()">
+    <header class="topbar">
+      <div class="brand">
+        <span class="logo" aria-hidden="true">🦊</span>
+        <span class="title">Anidle</span>
+        <span class="tagline">Guess the animal, learn the wild</span>
+      </div>
+      <div class="controls">
+        <input id="letterToggle" type="checkbox" hidden />
+        <button id="newBtn" class="btn">New Game</button>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="panel left">
+        <div class="input-row">
+          <input
+            id="guessInput"
+            placeholder="Type an animal name..."
+            autocomplete="off"
+            aria-label="Type an animal name"
+          />
+          <button id="guessBtn" class="btn" aria-label="Submit guess">
+            Guess
+          </button>
+        </div>
+
+        <details id="howto" class="howto" open>
+          <summary>How to Play</summary>
+          <ul>
+            <li>
+              Type an <b>animal name in English</b> (spaces allowed) and press
+              <kbd>Enter</kbd>.
+            </li>
+            <li>
+              You have <b>6 attempts</b>. Invalid names don’t consume attempts.
+            </li>
+            <li>
+              While typing, a <b>suggestion list</b> appears under the input
+              (emoji + tags).
+            </li>
+            <li>
+              After each valid guess, read the <b>Traits</b> panel: class/diet
+              match, habitat/continents overlap, and size/life
+              <i>higher/lower/same</i>.
+            </li>
+            <li>Win on exact name; lose after the 6th guess.</li>
+          </ul>
+        </details>
+
+        <div id="attempts" class="attempts"></div>
+
+        <div id="suggestions" class="suggestions"></div>
+
+        <div id="board" class="board hidden"></div>
+      </section>
+
+      <section class="panel right">
+        <h2>Traits</h2>
+        <div class="legend">
+          <span class="pill ok">✔ match</span>
+          <span class="pill no">✖ mismatch</span>
+          <span class="pill up">↑ higher</span>
+          <span class="pill down">↓ lower</span>
+          <span class="pill same">≈ close</span>
+        </div>
+        <div id="history" class="history"></div>
+      </section>
+    </main>
+
+    <div
+      id="resultModal"
+      class="modal hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="modalTitle"
+    >
+      <div id="modalBackdrop" class="modal-backdrop"></div>
+      <div id="modalPanel" class="modal-panel">
+        <div class="modal-head">
+          <div id="modalIcon" class="modal-icon" aria-hidden="true">🎉</div>
+          <div>
+            <h3 id="modalTitle" class="modal-title">You got it!</h3>
+            <p id="modalSubtitle" class="modal-subtitle"></p>
+          </div>
+        </div>
+        <div class="modal-actions">
+          <button id="modalNew" class="btn">New Game</button>
+          <button id="modalClose" class="btn ghost">Close</button>
+        </div>
+      </div>
+    </div>
+
+    <script type="text/python" src="/static/app.py"></script>
+  </body>
+</html>
