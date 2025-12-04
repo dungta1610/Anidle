@@ -54,6 +54,6 @@ anidle/
 
 - **English names**, **spaces/hyphens allowed**, case-insensitive.
 - Default **Free Play** (Daily available).
-- **Attempts = 5**.
+- **Attempts = 6**.
 - **Traits:** class, diet, habitat[], continents[], size_kg (↑/↓/≈), lifespan_years (↑/↓/≈).
 - Difficulty tiers (easy/normal/hard) toggle hints in the UI; server always returns full trait feedback (client can hide by mode).
